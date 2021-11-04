@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="Regresar" color="primary" mode="ios">
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="text-align:center !important;">
+  <form class="example-form" #formUser="ngForm" color="primary">
+    <mat-form-field class="example-full-width">
+      <mat-label>Usuario</mat-label>
+      <input type="text" #userCount matInput name="usuario" [(ngModel)]="user.usuario" placeholder="User"
+        (keyup)="onKeyUp($event)" onkeypress="if(this.value.length == 30 ) return false;" required>
+      <mat-hint> {{userCount.value.length}} /30 </mat-hint>
+    </mat-form-field>
+    <br>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" #emailCount matInput name="email" placeholder="Email" [(ngModel)]="user.email"
+        (keyup)="onKeyUpEmail($event)" required>
+      <mat-hint aling="end"></mat-hint>
+    </mat-form-field>
+    <br>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Contraseña</mat-label>
+      <input type="password" #passCount matInput placeholder="Password" matInput name="password"
+        [(ngModel)]="user.password" maxlength="30" (keyup)="onKeyUpPass($event)"
+        onkeypress="if(this.value.length==20) return false;" required>
+      <mat-hint> {{passCount.value.length}} /20 </mat-hint>
+    </mat-form-field>
+    <br>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Confirmar contraseña</mat-label>
+      <input type="password" #passCount2 matInput placeholder="Confirmar Password" matInput name="passwordConf"
+        [(ngModel)]="user.passwordConf" maxlength="30" (keyup)="onKeyUpPass($event)"
+        onkeypress="if(this.value.length==20) return false;" required>
+      <mat-hint> {{passCount2.value.length}} /20 </mat-hint>
+    </mat-form-field>
+    <br>
+    <br>
+    <ion-button (click)="onSubmit(formUser)"
+      [disabled]="user.flagUsuario==false || user.flagPass == false || user.flagPassConfirm==false" color="success">
+      Aceptar
+    </ion-button>
+  </form>
+</ion-content>

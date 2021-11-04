@@ -1,0 +1,47 @@
+<ion-content style="text-align:center !important;">
+  <ion-card>
+    <ion-avatar >
+      <br>
+      <img src="https://png.pngtree.com/png-vector/20190321/ourmid/pngtree-vector-users-icon-png-image_856952.jpg">
+    </ion-avatar>
+    <form class="example-form" #formUser="ngForm" color = "primary">
+      
+      <ion-row>
+        <ion-col>
+           <mat-form-field class="example-full-width" >
+            <mat-label>Usuario</mat-label>
+            <input type="text" #userCount  matInput name="usuario" [(ngModel)]="user.usuario" placeholder="User" (keyup)="onKeyUp($event)"
+            onkeypress="if(this.value.length == 30 ) return false;"
+            required>
+            <mat-hint> {{userCount.value.length}}  /30 </mat-hint>
+          </mat-form-field>
+          <br>
+          <br>
+          <mat-form-field class="example-full-width">
+            <mat-label>Contraseña</mat-label>
+            <input type="password" #passCount matInput placeholder="Password" matInput name="password" [(ngModel)]="user.password" maxlength="30" (keyup)="onKeyUpPass($event)" 
+            onkeypress="if(this.value.length==20) return false;" required>
+            <mat-hint> {{passCount.value.length}} /20 </mat-hint>
+          </mat-form-field>
+          <br>
+          <br>
+          
+          <br>
+          <ion-button (click)="onSubmit(formUser)" [disabled]= "user.flag==false" color="success">
+            Iniciar
+          </ion-button>
+          <br>
+          <ion-text>
+            <ion-label>
+              <br>
+              <a href="/recovery">¿Olvidaste tu contraseña? </a><br>
+              <br>
+              <a href="/register">Haz click aqui para registrarte </a><br>
+              <br>
+            </ion-label>
+          </ion-text> 
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-card> 
+</ion-content>

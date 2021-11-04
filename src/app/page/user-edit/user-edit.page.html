@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title>Datos Usuarios</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button icon-right routerLink="/home" color="success">  
+        <ion-icon name="exit-outline" > </ion-icon>  </ion-button>
+    </ion-buttons>    
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content style="text-align:center !important;">
+  <form class="example-form" #formUser="ngForm" color="primary">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input type="text" #userCount matInput name="nombre" [(ngModel)]="user.nombre" placeholder="Nombre"
+        (keyup)="onKeyUp($event)" onkeypress="if(this.value.length == 30 ) return false;" required>
+      <mat-hint> {{userCount.value.length}} /30 </mat-hint>
+    </mat-form-field>
+    <br>
+    <br>
+    <mat-form-field class="example-full-width">
+    <mat-label>Apellido Paterno</mat-label>
+      <input type="text" #apellidoCount matInput name="apellidoP" [(ngModel)]="user.apellidoP" placeholder="Apellido Paterno"
+        (keyup)="onKeyUp($event)" onkeypress="if(this.value.length == 30 ) return false;" required>
+      <mat-hint> {{apellidoCount.value.length}} /30 </mat-hint>
+    </mat-form-field>
+    <br>
+    <br>
+    <mat-form-field class="example-full-width">
+    <mat-label>Apellido Materno</mat-label>
+      <input type="text" #apellidoMCount matInput name="apellidoM" [(ngModel)]="user.apellidoM" placeholder="Apellido Materno"
+        (keyup)="onKeyUp($event)" onkeypress="if(this.value.length == 30 ) return false;" required>
+      <mat-hint> {{apellidoMCount.value.length}} /30 </mat-hint>
+    </mat-form-field>
+    <br>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" #emailCount matInput name="email" placeholder="Email" [(ngModel)]="user.email"
+        (keyup)="onKeyUpEmail($event)" required>
+      <mat-hint aling="end"></mat-hint>
+    </mat-form-field>
+    <br>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Telefono</mat-label>
+        <input type="number" #telefonoCount matInput name="telefono" [(ngModel)]="user.telefono" placeholder="Telefono"
+          (keyup)="onKeyUp($event)" onkeypress="if(this.value.length == 10 ) return false;" required>
+        <mat-hint> {{telefonoCount.value.length}} /10 </mat-hint>
+      </mat-form-field>
+    <br>
+    <ion-button (click)="onSubmit(formUser)" [disabled]="user.flag==false" color="success">
+      Actualizar
+    </ion-button>
+  </form>
+</ion-content>

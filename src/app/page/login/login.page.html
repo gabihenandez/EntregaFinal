@@ -1,0 +1,32 @@
+<ion-content style="text-align:center !important;">
+  
+  <form class="example-form" #formUser="ngForm" color = "primary">
+    <ion-row>
+      <ion-col>
+         <mat-form-field class="example-full-width" >
+          <mat-label>Usuario</mat-label>
+          <input type="text" #usuarioCount matInput name="usuario" [(ngModel)]="user.usuario" placeholder="User" (keyup)="onKeyUp($event)"
+          onkeypress="if(this.value.length==10) return false;"
+          required>
+          <mat-hint aling="end"> {{usuarioCount.value.lenght}} / 10 </mat-hint> 
+        </mat-form-field>
+        <br>
+        <br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Password" matInput name="password" [(ngModel)]="user.password" required minlength="8" maxlength="20">
+        </mat-form-field>
+        <br>
+        <br>
+        <mat-label>
+          <a href="/recovery">Olvidé mi contraseña</a>
+        </mat-label>
+        <br>
+        <br>
+        <ion-button (click)="onSubmit(formUser)" color="success">
+          Submit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

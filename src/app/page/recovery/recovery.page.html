@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/"
+        text= "Regresar"
+        color= "primary"
+        mode= "ios"
+        >
+      
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="text-align:center !important;">
+  <ion-card>
+    <form class="example-form" #formUser="ngForm" color="primary">
+      <h1>Recuperación de contraseña</h1>
+        <mat-form-field class="example-full-width">
+          <mat-label>Ingresa tu correo</mat-label>
+          <br>
+          <br>
+          <input type="email" #usuarioCount matInput name="email" placeholder="Correo" [(ngModel)]="user.email" 
+            (keyup)="onKeyUpEmail($event)" required>
+          <mat-hint aling="end"></mat-hint>
+        </mat-form-field>
+      <br>
+      <br>
+      <ion-button (click)="onSubmit(formUser)" color="success">
+        Aceptar
+      </ion-button>
+    </form> 
+  </ion-card> 
+</ion-content>
